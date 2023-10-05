@@ -9,6 +9,7 @@ public class Answet {
         this.bull = bull;
         this.cow = cow;
         this.maxTry = maxTry;
+
     }
 
     @Override

@@ -1,10 +1,12 @@
 package main.zad3;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Приветствую тебя оооо господин!\n");
+        ArrayList<String> log = new ArrayList<>();
         Scanner startGame = new Scanner(System.in);
         System.out.println("Поиграем? (yes/no?) ");
         String start = startGame.next();
@@ -28,9 +30,13 @@ public class Main {
                     System.out.println("Введите свой вариант: ");
                     Scanner scanner = new Scanner(System.in);
                     Answet answet = game.inputValue(scanner.nextLine());
+                    log.add(String.valueOf("Быков= " + answet.bull));
+                    log.add(String.valueOf("Коров= " + answet.cow));
+                    log.add(String.valueOf("Количество попыток= " + answet.maxTry + "\n"));
                     System.out.println(answet);
                 }
-                System.out.println("game.getGameStatus() = " + game.getGameStatus());
+                System.out.println("Cтатус = " + game.getGameStatus());
+                log.add(String.valueOf(game.getGameStatus() + "\n"));
             }
             else if (varGame == 2){
                 Game game = new RussianGame();
@@ -39,9 +45,13 @@ public class Main {
                     System.out.println("Введите свой вариант: ");
                     Scanner scanner = new Scanner(System.in);
                     Answet answet = game.inputValue(scanner.nextLine());
-                    System.out.println("answet = " + answet);
+                    log.add(String.valueOf("Быков= " + answet.bull));
+                    log.add(String.valueOf("Коров= " + answet.cow));
+                    log.add(String.valueOf("Количество попыток= " + answet.maxTry + "\n"));
+                    System.out.println(answet);
                 }
-                System.out.println("game.getGameStatus() = " + game.getGameStatus());
+                System.out.println("Cтатус = " + game.getGameStatus());
+                log.add(String.valueOf(game.getGameStatus() + "\n"));
             }else{
                 Game game = new EnglichGame();
                 game.start(sizeWord, maxTry);
@@ -49,9 +59,19 @@ public class Main {
                     System.out.println("Введите свой вариант: ");
                     Scanner scanner = new Scanner(System.in);
                     Answet answet = game.inputValue(scanner.nextLine());
-                    System.out.println("answet = " + answet);
+                    log.add(String.valueOf("Быков= " + answet.bull));
+                    log.add(String.valueOf("Коров= " + answet.cow));
+                    log.add(String.valueOf("Количество попыток= " + answet.maxTry + "\n"));
+                    System.out.println(answet);
                 }
-                System.out.println("game.getGameStatus() = " + game.getGameStatus());
+                System.out.println("Cтатус = " + game.getGameStatus());
+                log.add(String.valueOf(game.getGameStatus() + "\n"));
+            }
+            Scanner scLog = new Scanner(System.in);
+            System.out.println("Показать лог игры? (yes/no?) ");
+            String logSt = scLog.nextLine();
+            if(logSt.equals("yes")) {
+                System.out.println("Логи  игры =\n" + log);
             }
             Scanner beginGame = new Scanner(System.in);
             System.out.println("Поиграем еще? (yes/no?) ");

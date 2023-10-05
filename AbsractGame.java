@@ -8,6 +8,11 @@ public abstract class AbsractGame implements Game {
     Integer sizeWord;
     Integer maxTry;
     String computerWord;
+
+    public String getComputerWord() {
+        return computerWord;
+    }
+
     GameStatus gameStatus = GameStatus.INIT;
 
     public AbsractGame() {
